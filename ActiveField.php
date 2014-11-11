@@ -8,6 +8,9 @@
 
 namespace nonzod\foundation;
 
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
+
 /**
  * Description of ActiveField
  *

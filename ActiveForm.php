@@ -8,6 +8,8 @@
 
 namespace nonzod\foundation;
 
+use yii\helpers\Html;
+
 /**
  * Description of ActiveForm
  *
@@ -31,5 +33,4 @@ class ActiveForm extends \yii\widgets\ActiveForm {
     }
     parent::init();
   }
-
 }
