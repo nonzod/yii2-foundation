@@ -1,0 +1,29 @@
+{
+    "name": "nonzod/yii2-foundation",
+    "description": "The Foundation extension for the Yii framework",
+    "keywords": ["yii2", "foundation"],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/nonzod/yii2-foundation/issues",
+        "wiki": "https://github.com/nonzod/yii2-foundation/wiki",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/nonzod/yii2-foundation.git"
+    },
+    "authors": [
+        {
+            "name": "Nicola Tomassoni",
+            "email": "nicola@digisin.it",
+            "homepage": "http://www.digisin.it/"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/foundation": "5.4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "nonzod\\foundation\\": ""
+        }
+    }
+}
