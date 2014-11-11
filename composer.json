@@ -7,7 +7,6 @@
     "support": {
         "issues": "https://github.com/nonzod/yii2-foundation/issues",
         "wiki": "https://github.com/nonzod/yii2-foundation/wiki",
-        "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/nonzod/yii2-foundation.git"
     },
     "authors": [
