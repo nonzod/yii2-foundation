@@ -3,7 +3,7 @@
 /**
  *  @copyright Copyright &copy; Digisin soc. coop, digisin.it 2014
  *  @package nonzod/yii2-foundation
- *  @version 0.0.1
+ *  @version dev
  */
 
 namespace nonzod\foundation;
@@ -22,10 +22,18 @@ class Widget extends \yii\base\Widget {
    * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
    */
   public $options = [];
-
   public $clientOptions = [];
-
   public $clientEvents = [];
+
+  /**
+   * Initialize the widget
+   */
+  public function init() {
+    parent::init();
+    if (empty($this->options['id'])) {
+      $this->options['id'] = $this->getId();
+    }
+  }
 
   /**
    * Registers a specific Foundation plugin and the related events

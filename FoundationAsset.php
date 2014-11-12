@@ -3,10 +3,12 @@
 /**
  *  @copyright Copyright &copy; Digisin soc. coop, digisin.it 2014
  *  @package nonzod/yii2-foundation
- *  @version 0.0.1
+ *  @version 1.0.0
  */
 
 namespace nonzod\foundation;
+
+use yii\web\AssetBundle;
 
 /**
  * Asset bundle for the foundation css and js files.
@@ -24,6 +26,10 @@ class FoundationAsset extends AssetBundle {
   ];
   public $js = [
       'js/foundation.min.js'
+  ];
+  public $depends = [
+      'nonzod\foundation\ModernizrAsset',
+      'nonzod\foundation\WidgetAsset',
   ];
 
 }

@@ -3,7 +3,7 @@
 /**
  *  @copyright Copyright &copy; Digisin soc. coop, digisin.it 2014
  *  @package nonzod/yii2-foundation
- *  @version 0.0.1
+ *  @version dev
  */
 
 namespace nonzod\foundation;
@@ -42,6 +42,18 @@ class ActiveField extends \yii\widgets\ActiveField {
    * @var bool whether to render the label. Default is `true`.
    */
   public $enableLabel = true;
+  
+  /**
+   *
+   * @var type 
+   */
+  public $inputOptions = [];
+
+  /**
+   *
+   * @var type 
+   */
+  public $horizontalCssClasses = [];
 
   /**
    * @inheritdoc
@@ -53,16 +65,69 @@ class ActiveField extends \yii\widgets\ActiveField {
   }
 
   /**
+   * Renders the hint tag.
+   * @param string $content the hint content. It will NOT be HTML-encoded.
+   * @param array $options the tag options in terms of name-value pairs. These will be rendered as
+   * the attributes of the hint tag. The values will be HTML-encoded using [[Html::encode()]].
+   *
+   * The following options are specially handled:
+   *
+   * - tag: this specifies the tag name. If not set, "div" will be used.
+   *
+   * @return static the field object itself
+   */
+  public function hint($content, $options = []) {
+
+    $options = array_merge($this->hintOptions, $options, [
+        'id' => 'hint-' . Html::getInputId($this->model, $this->attribute)
+    ]);
+
+    $tag = ArrayHelper::remove($options, 'tag', 'p');
+    $this->parts['{hint}'] = Html::tag($tag, $content, $options);
+
+    return $this;
+  }
+
+  /**
+   * Renders an input tag.
+   * @param string $type the input type (e.g. 'text', 'password')
+   * @param array $options the tag options in terms of name-value pairs. These will be rendered as
+   * the attributes of the resulting tag. The values will be HTML-encoded using [[Html::encode()]].
+   * @return static the field object itself
+   */
+  public function input($type, $options = []) {
+    $options = array_merge($this->inputOptions, [
+        'class' => 'hint-' . Html::getInputId($this->model, $this->attribute)
+    ]);
+    $this->adjustLabelFor($options);
+    $this->parts['{input}'] = Html::activeInput($type, $this->model, $this->attribute, $options);
+
+    return $this;
+  }
+
+  /**
+   * Renders a text input.
+   * This method will generate the "name" and "value" tag attributes automatically for the model attribute
+   * unless they are explicitly specified in `$options`.
+   * @param array $options the tag options in terms of name-value pairs. These will be rendered as
+   * the attributes of the resulting tag. The values will be HTML-encoded using [[Html::encode()]].
+   * @return static the field object itself
+   */
+  public function textInput($options = []) {
+    $options = array_merge($this->inputOptions, $options, [
+        'aria-describedby' => 'hint-' . Html::getInputId($this->model, $this->attribute)
+    ]);
+    $this->adjustLabelFor($options);
+    $this->parts['{input}'] = Html::activeTextInput($this->model, $this->attribute, $options);
+
+    return $this;
+  }
+    
+  /**
    * @inheritdoc
    */
   public function render($content = null) {
     if ($content === null) {
-      if (!isset($this->parts['{beginWrapper}'])) {
-        $options = $this->wrapperOptions;
-        $tag = ArrayHelper::remove($options, 'tag', 'div');
-        $this->parts['{beginWrapper}'] = Html::beginTag($tag, $options);
-        $this->parts['{endWrapper}'] = Html::endTag($tag);
-      }
       if ($this->enableLabel === false) {
         $this->parts['{label}'] = '';
         $this->parts['{beginLabel}'] = '';
@@ -93,35 +158,20 @@ class ActiveField extends \yii\widgets\ActiveField {
     $config = [
         'hintOptions' => [
             'tag' => 'p',
+            'class' => 'hint-box'
         ],
         'errorOptions' => [
             'tag' => 'small',
-            'class' => 'error',
-        ],
-        'inputOptions' => [],
+            'class' => 'error-box'
+        ]
     ];
 
     $layout = $instanceConfig['form']->layout;
 
     if ($layout === 'default') {
-      $config['template'] = "{beginWrapper}\n{label}\n{input}\n{error}\n{endWrapper}\n{hint}";
-      $cssClasses = [
-          'offset' => 'small-3',
-          'label' => 'small-3',
-          'wrapper' => 'small-6 columns',
-          'error' => '',
-          'hint' => 'small-3',
-      ];
-      if (isset($instanceConfig['horizontalCssClasses'])) {
-        $cssClasses = ArrayHelper::merge($cssClasses, $instanceConfig['horizontalCssClasses']);
-      }
-      $config['horizontalCssClasses'] = $cssClasses;
-      $config['wrapperOptions'] = ['class' => $cssClasses['wrapper']];
-      $config['labelOptions'] = ['class' => $cssClasses['label']];
-      $config['errorOptions'] = ['class' => 'error ' . $cssClasses['error']];
-      $config['hintOptions'] = ['id' => 'help-block ', 'class' => $cssClasses['hint']];
+      $config['template'] = "{beginLabel}{labelTitle}\n{input}{endLabel}\n{error}\n{hint}\n";
     } elseif ($layout === 'inline') {
-      $config['labelOptions'] = ['class' => 'sr-only'];
+      $config['labelOptions'] = ['class' => 'right inline'];
       $config['enableError'] = false;
     }
 
