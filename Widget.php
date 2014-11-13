@@ -22,8 +22,16 @@ class Widget extends \yii\base\Widget {
    * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
    */
   public $options = [];
+  /**
+   * @var array Specific options of the Foundation plugin in use.
+   * @see http://foundation.zurb.com/docs/javascript.html 
+   */
   public $clientOptions = [];
-  public $clientEvents = [];
+  /**
+   * @var array Plugin methods
+   * @see http://foundation.zurb.com/docs/javascript.html 
+   */
+  public $clientFireMethods = [];
 
   /**
    * Initialize the widget
@@ -40,12 +48,24 @@ class Widget extends \yii\base\Widget {
    * @param string $name the name of the Foundation plugin
    * @todo far caricare solo i js dei plugin in uso
    */
-  protected function registerPlugin($name='') {
+  protected function registerPlugin($name = '') {
     $view = $this->getView();
-
-    //FoundationPluginAsset::register($view);
     
-    $view->registerJs("$(document).foundation();");
+    //$id = $this->options['id'];
+    
+    if ($this->clientOptions !== false) {
+      $options = empty($this->clientOptions) ? '' : Json::encode($this->clientOptions);
+      $js = "$(document).foundation({ $name : { $options } });";
+      $view->registerJs($js);
+    }
+    
+    if (!empty($this->clientFireMethods)) {
+      $js = [];
+      foreach ($this->clientFireMethods as $method) {
+        $js[] = "$(document).foundation('$name', '$method');";
+      }
+      $view->registerJs(implode("\n", $js));
+    }
   }
 
 }

@@ -53,7 +53,7 @@ class TopBar extends Widget {
     $tag = ArrayHelper::remove($this->options, 'tag', 'nav');
     echo Html::endTag($tag);
     
-    $this->registerPlugin();
+    $this->registerPlugin('topbar');
   }
 
   /**

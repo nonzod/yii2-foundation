@@ -30,5 +30,4 @@ class FoundationAsset extends AssetBundle {
   public $depends = [
       'nonzod\foundation\ModernizrAsset'
   ];
-
 }
