@@ -28,7 +28,7 @@ class Widget extends \yii\base\Widget {
    */
   public $clientOptions = [];
   /**
-   * @var array Plugin methods
+   * @var array Specific methods to call
    * @see http://foundation.zurb.com/docs/javascript.html 
    */
   public $clientFireMethods = [];
@@ -44,7 +44,7 @@ class Widget extends \yii\base\Widget {
   }
 
   /**
-   * Registers a specific Foundation plugin and the related events
+   * Registers a specific Foundation plugin and call related methods
    * @param string $name the name of the Foundation plugin
    * @todo far caricare solo i js dei plugin in uso
    */

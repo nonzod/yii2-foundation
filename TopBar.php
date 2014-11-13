@@ -18,11 +18,21 @@ use yii\helpers\ArrayHelper;
  */
 class TopBar extends Widget {
 
-  public $options = ['data-topbar' => ''];
+  /**
+   * @var array
+   * @see http://foundation.zurb.com/docs/components/topbar.html 
+   */
+  public $options = ['data-topbar'];
+  /**
+   * @var array 
+   * @see http://foundation.zurb.com/docs/components/topbar.html#positioning-the-bar
+   */
   public $containerOptions = [];
+  
   public $titleLabel;
   public $titleLink;
   public $titleOptions = [];
+  
   public $toggleText = 'Menu';
   public $showToggleIcon = true;
   public $toggleOptions = ['class' => 'toggle-topbar'];
@@ -41,7 +51,11 @@ class TopBar extends Widget {
 
     $options = $this->options;
     $tag = ArrayHelper::remove($options, 'tag', 'nav');
-
+    
+    if(!empty($this->containerOptions)) {
+      echo Html::beginTag('div', $this->containerOptions);
+    }
+    
     echo Html::beginTag($tag, $options);
     echo Html::tag('ul', implode("\n", $this->headerItems()), ['class' => 'title-area']);
   }
@@ -53,6 +67,10 @@ class TopBar extends Widget {
     $tag = ArrayHelper::remove($this->options, 'tag', 'nav');
     echo Html::endTag($tag);
     
+    if(!empty($this->containerOptions)) {
+      echo Html::endTag('div');
+    }
+    
     $this->registerPlugin('topbar');
   }
 
@@ -62,7 +80,8 @@ class TopBar extends Widget {
   protected function headerItems() {
     Html::addCssClass($this->titleOptions, 'name');
     
-    $title = Html::tag('h1', Html::a($this->titleLabel, $this->titleLink));
+    
+    $title = !empty($this->titleLabel) ? Html::tag('h1', Html::a($this->titleLabel, $this->titleLink)) : '';
 
     if ($this->showToggleIcon) {
       Html::addCssClass($this->toggleOptions, 'menu-icon');
