@@ -8,21 +8,15 @@
 
 namespace nonzod\foundation;
 
-use yii\web\AssetBundle;
-
 /**
- * Asset bundle for the modernizr js files.
+ * Description of Breadcrumbs
  *
  * @author Nicola Tomassoni <nicola@digisin.it>
- * @since 0.0.1
- * @see
  */
-class ModernizrAsset extends AssetBundle {
+class Breadcrumbs extends \yii\widgets\Breadcrumbs {
 
-  public $sourcePath = '@bower/modernizr';
-
-  public $js = [
-      'modernizr.js'
-  ];
+  public $options = ['class' => 'breadcrumbs'];
+  
+  public $activeItemTemplate = "<li class=\"current\">{link}</li>\n";
 
 }

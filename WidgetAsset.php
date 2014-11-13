@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  @copyright Copyright &copy; Nicola Tomassoni, digisin.it 2014
+ *  @copyright Copyright &copy; Digisin soc. coop, digisin.it 2014
  *  @package nonzod/yii2-foundation
  *  @version dev
  */

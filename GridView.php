@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  @copyright Copyright &copy; Nicola Tomassoni, digisin.it 2014
+ *  @copyright Copyright &copy; Digisin soc. coop, digisin.it 2014
  *  @package nonzod/yii2-foundation
  *  @version 0.0.1
  */
@@ -19,5 +19,4 @@ class GridView extends \yii\grid\GridView {
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $tableOptions = ['class' => 'table', 'role' => 'grid']; 
-    
 }
