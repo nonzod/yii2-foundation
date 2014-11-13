@@ -33,4 +33,10 @@ class ActiveForm extends \yii\widgets\ActiveForm {
     }
     parent::init();
   }
+  
+  public function run() {
+    parent::run();
+    $view = $this->getView();
+    ActiveFormAsset::register($view);
+  }
 }

@@ -38,11 +38,14 @@ class Widget extends \yii\base\Widget {
   /**
    * Registers a specific Foundation plugin and the related events
    * @param string $name the name of the Foundation plugin
+   * @todo far caricare solo i js dei plugin in uso
    */
-  protected function registerPlugin($name) {
+  protected function registerPlugin($name='') {
     $view = $this->getView();
 
-    FoundationAsset::register($view);
+    //FoundationPluginAsset::register($view);
+    
+    $view->registerJs("$(document).foundation();");
   }
 
 }

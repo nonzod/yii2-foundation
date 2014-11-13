@@ -17,7 +17,7 @@ use yii\web\AssetBundle;
  * @since 0.0.1
  * @see
  */
-class WidgetAsset extends AssetBundle {
+class ActiveFormAsset extends AssetBundle {
 
   public $sourcePath = '@vendor/nonzod/yii2-foundation';
   public $js = [
