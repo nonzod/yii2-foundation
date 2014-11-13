@@ -80,7 +80,6 @@ class TopBar extends Widget {
   protected function headerItems() {
     Html::addCssClass($this->titleOptions, 'name');
     
-    
     $title = !empty($this->titleLabel) ? Html::tag('h1', Html::a($this->titleLabel, $this->titleLink)) : '';
 
     if ($this->showToggleIcon) {
