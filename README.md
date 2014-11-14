@@ -7,6 +7,7 @@ Widgets in progress:
 * [TopBar and TopBarSection](http://foundation.zurb.com/docs/components/topbar.html)
 * [GridView](http://foundation.zurb.com/docs/components/tables.html)
 * [Breadcrumbs](http://foundation.zurb.com/docs/components/breadcrumbs.html)
+* [Button](http://foundation.zurb.com/docs/components/buttons.html)
 
 Installation
 ------------
