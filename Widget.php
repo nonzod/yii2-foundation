@@ -55,7 +55,8 @@ class Widget extends \yii\base\Widget {
     
     if ($this->clientOptions !== false) {
       $options = empty($this->clientOptions) ? '' : Json::encode($this->clientOptions);
-      $js = "$(document).foundation({ $name : { $options } });";
+      //$js = "$(document).foundation({ '$name' : { $options } });";
+      $js = "$(document).foundation();";
       $view->registerJs($js);
     }
     

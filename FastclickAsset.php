@@ -9,23 +9,16 @@
 namespace nonzod\foundation;
 
 use yii\web\AssetBundle;
-use yii\web\View;
 
 /**
- * Asset bundle for the modernizr js files.
+ * Description of FastclickAsset
  *
  * @author Nicola Tomassoni <nicola@digisin.it>
- * @since 0.0.1
- * @see
  */
-class ModernizrAsset extends AssetBundle {
-
-  public $sourcePath = '@bower/modernizr';
+class FastclickAsset extends AssetBundle {
+  public $sourcePath = '@bower/fastclick';
 
   public $js = [
-      'modernizr.js'
+      'lib/fastclick.js'
   ];
-  
-  public $jsOptions = ['position' => View::POS_HEAD];
-
 }

@@ -25,9 +25,10 @@ class FoundationAsset extends AssetBundle {
       'css/foundation.css',
   ];
   public $js = [
-      'js/foundation.min.js'
+      'js/foundation.js'
   ];
   public $depends = [
-      'nonzod\foundation\ModernizrAsset'
+      'nonzod\foundation\ModernizrAsset',
+      'nonzod\foundation\FastclickAsset'
   ];
 }
