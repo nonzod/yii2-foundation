@@ -8,6 +8,7 @@ Widgets in progress:
 * [GridView](http://foundation.zurb.com/docs/components/tables.html)
 * [Breadcrumbs](http://foundation.zurb.com/docs/components/breadcrumbs.html)
 * [Button](http://foundation.zurb.com/docs/components/buttons.html)
+* [ButtonGroup](http://foundation.zurb.com/docs/components/button_groups.html)
 
 Installation
 ------------
