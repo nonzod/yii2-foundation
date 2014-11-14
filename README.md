@@ -1,6 +1,8 @@
 Foundation Extension for Yii 2
 ==============================
 
+Based on yii2-bootstrap
+
 Widgets in progress:
 
 * [ActiveForm and ActiveField](http://foundation.zurb.com/docs/components/forms.html)
@@ -9,6 +11,8 @@ Widgets in progress:
 * [Breadcrumbs](http://foundation.zurb.com/docs/components/breadcrumbs.html)
 * [Button](http://foundation.zurb.com/docs/components/buttons.html)
 * [ButtonGroup](http://foundation.zurb.com/docs/components/button_groups.html)
+* [DropDown](http://foundation.zurb.com/docs/components/dropdown.html)
+* DropdownButton works as [Dropdown button](http://foundation.zurb.com/docs/components/dropdown_buttons.html) or [Split button](http://foundation.zurb.com/docs/components/split_buttons.html)
 
 Installation
 ------------
