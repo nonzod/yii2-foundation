@@ -1,7 +1,12 @@
 Foundation Extension for Yii 2
 ==============================
 
-lorem ipsum...
+Widgets in progress:
+
+* [ActiveForm and ActiveField](http://foundation.zurb.com/docs/components/forms.html)
+* [TopBar and TopBarSection](http://foundation.zurb.com/docs/components/topbar.html)
+* [GridView](http://foundation.zurb.com/docs/components/tables.html)
+* [Breadcrumbs](http://foundation.zurb.com/docs/components/breadcrumbs.html)
 
 Installation
 ------------
