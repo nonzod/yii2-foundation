@@ -29,6 +29,12 @@ class Button extends Widget {
   public $label = 'Button';
 
   /**
+   *
+   * @var string|array the button link, used only if tagName is 'a' 
+   */
+  public $url = '#';
+  
+  /**
    * @var boolean whether the label should be HTML-encoded.
    */
   public $encodeLabel = true;
@@ -49,12 +55,11 @@ class Button extends Widget {
    */
   public function run() {
     if($this->tagName == 'a') {
-      echo Html::a($this->encodeLabel ? Html::encode($this->label) : $this->label, '#', $this->options);
+      echo Html::a($this->encodeLabel ? Html::encode($this->label) : $this->label, $this->url, $this->options);
     } else {
       $this->options['tabindex'] = '0';
       echo Html::tag($this->tagName, $this->encodeLabel ? Html::encode($this->label) : $this->label, $this->options);
     }
-    $this->registerPlugin('button');
   }
 
 }
