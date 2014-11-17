@@ -18,6 +18,7 @@ use yii\helpers\Html;
 class ActiveForm extends \yii\widgets\ActiveForm {
 
   public $fieldClass = 'nonzod\foundation\ActiveField';
+  
   public $layout = 'default';
 
   /**
@@ -34,6 +35,9 @@ class ActiveForm extends \yii\widgets\ActiveForm {
     parent::init();
   }
   
+  /**
+   * @inheritdoc
+   */
   public function run() {
     parent::run();
     $view = $this->getView();

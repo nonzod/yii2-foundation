@@ -18,10 +18,12 @@ use yii\helpers\ArrayHelper;
  */
 class ActiveField extends \yii\widgets\ActiveField {
 
-  /**
-   * @var bool whether to render [[checkboxList()]] and [[radioList()]] inline.
-   */
-  public $inline = false;
+  public $template = "{beginLabel}{labelTitle}\n{input}{endLabel}\n{error}\n{hint}\n";
+  public $inlineTemplate = "<div class=\"row\"><div class=\"small-3 columns\">{label}</div><div class=\"small-9 columns\">{input}\n{error}\n{hint}</div></div>\n";
+  public $checkboxTemplate = "{label}\n{input}\n{error}\n{hint}\n";
+  public $checkboxListTemplate = "{label}\n{input}\n{error}\n{hint}\n";
+  public $radioTemplate = "{label}\n{input}\n{error}\n{hint}\n";
+  public $radioListTemplate = "{label}\n{input}\n{error}\n{hint}\n";
 
   /**
    * @var string|null optional template to render the `{input}` placeholder content
@@ -42,7 +44,7 @@ class ActiveField extends \yii\widgets\ActiveField {
    * @var bool whether to render the label. Default is `true`.
    */
   public $enableLabel = true;
-  
+
   /**
    *
    * @var type 
@@ -53,7 +55,7 @@ class ActiveField extends \yii\widgets\ActiveField {
    *
    * @var type 
    */
-  public $horizontalCssClasses = [];
+  public $inlineCssClasses = [];
 
   /**
    * @inheritdoc
@@ -122,7 +124,61 @@ class ActiveField extends \yii\widgets\ActiveField {
 
     return $this;
   }
-    
+
+  /**
+   * @inheritdoc
+   */
+  public function checkbox($options = [], $enclosedByLabel = false) {
+    if ($enclosedByLabel) {
+      $this->template = $this->form->layout === 'inline' ?
+          $this->inlineTemplate : $this->checkboxTemplate;
+    }
+
+    return parent::checkbox($options, $enclosedByLabel);
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public function checkboxList($items, $options = []) {
+    $this->template = $this->form->layout === 'inline' ?
+        $this->inlineTemplate : $this->checkboxListTemplate;
+
+    if (!isset($options['item'])) {
+      $options['item'] = function ($index, $label, $name, $checked, $value) {
+        return Html::checkbox($name, $checked, ['label' => $label, 'value' => $value]);
+      };
+    }
+    parent::checkboxList($items, $options);
+    return $this;
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public function radio($options = [], $enclosedByLabel = false) {
+      $this->template = $this->form->layout === 'inline' ?
+          $this->inlineTemplate : $this->radioTemplate;
+
+    return parent::radio($options, $enclosedByLabel);
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public function radioList($items, $options = []) {
+    $this->template = $this->form->layout === 'inline' ?
+        $this->inlineTemplate : $this->radioListTemplate;
+
+    if (!isset($options['item'])) {
+      $options['item'] = function ($index, $label, $name, $checked, $value) {
+        return Html::radio($name, $checked, ['label' => $label, 'value' => $value]);
+      };
+    }
+    parent::radioList($items, $options);
+    return $this;
+  }
+
   /**
    * @inheritdoc
    */
@@ -169,8 +225,9 @@ class ActiveField extends \yii\widgets\ActiveField {
     $layout = $instanceConfig['form']->layout;
 
     if ($layout === 'default') {
-      $config['template'] = "{beginLabel}{labelTitle}\n{input}{endLabel}\n{error}\n{hint}\n";
+      $config['template'] = $this->template;
     } elseif ($layout === 'inline') {
+      $config['template'] = $this->inlineTemplate;
       $config['labelOptions'] = ['class' => 'right inline'];
       $config['enableError'] = false;
     }
