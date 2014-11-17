@@ -22,6 +22,7 @@ class Html extends \yii\helpers\Html {
   const BORDER_RADIUS = 'radius';
   const BORDER_ROUND = 'round';
   const TYPE_SECONDARY = 'secondary';
+  const TYPE_INFO = 'info';
   const TYPE_SUCCESS = 'success';
   const TYPE_WARNING = 'warning';
   const TYPE_ALERT = 'alert';
