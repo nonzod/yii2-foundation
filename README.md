@@ -1,7 +1,7 @@
 Foundation Extension for Yii 2
 ==============================
 
-Based on yii2-bootstrap
+Based on yii2-bootstrap code, use this extension instead of yii2-bootstrap.
 
 Widgets in progress:
 

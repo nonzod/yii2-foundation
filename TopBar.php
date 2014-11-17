@@ -30,7 +30,7 @@ class TopBar extends Widget {
    */
   public $containerOptions = [];
   public $titleLabel;
-  public $titleLink;
+  public $titleUrl;
   public $titleOptions = [];
   public $toggleText = 'Menu';
   public $showToggleIcon = true;
@@ -81,7 +81,7 @@ class TopBar extends Widget {
   protected function headerItems() {
     Html::addCssClass($this->titleOptions, 'name');
 
-    $title = !empty($this->titleLabel) ? Html::tag('h1', Html::a($this->titleLabel, $this->titleLink)) : '';
+    $title = !empty($this->titleLabel) ? Html::tag('h1', Html::a($this->titleLabel, $this->titleUrl)) : '';
 
     if ($this->showToggleIcon) {
       Html::addCssClass($this->toggleOptions, 'menu-icon');
