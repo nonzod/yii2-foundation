@@ -8,6 +8,7 @@ Widgets in progress:
 * [ActiveForm and ActiveField](http://foundation.zurb.com/docs/components/forms.html)
 * [TopBar and TopBarSection](http://foundation.zurb.com/docs/components/topbar.html)
 * [SideNav](http://foundation.zurb.com/docs/components/sidenav.html)
+* [IconBar](http://foundation.zurb.com/docs/components/icon-bar.html)
 * [GridView](http://foundation.zurb.com/docs/components/tables.html)
 * [Breadcrumbs](http://foundation.zurb.com/docs/components/breadcrumbs.html)
 * [Button](http://foundation.zurb.com/docs/components/buttons.html)
