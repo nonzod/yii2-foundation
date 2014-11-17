@@ -16,6 +16,11 @@ Widgets in progress:
 * [DropDown](http://foundation.zurb.com/docs/components/dropdown.html)
 * DropdownButton works as [Dropdown button](http://foundation.zurb.com/docs/components/dropdown_buttons.html) or [Split button](http://foundation.zurb.com/docs/components/split_buttons.html)
 
+Helpers:
+
+* Html::icon()
+* Html::fLabel()
+
 Installation
 ------------
 

@@ -25,4 +25,13 @@ class GridView extends \yii\grid\GridView {
      * @see [[\yii\widgets\BaseListView::pager]]
      */
     public $pager = ['class' => 'nonzod\foundation\LinkPager'];
+    
+    /**
+     * @inheritdoc
+     */
+    public function init() {
+      parent::init();
+      
+      FoundationIconAsset::register($this->getView());
+    }
 }
