@@ -17,9 +17,9 @@ use yii\web\AssetBundle;
  */
 class FoundationIconAsset extends AssetBundle {
 
-  public $sourcePath = '@bower/foundation-icons-font';
+  public $sourcePath = '@vendor/nonzod/yii2-foundation/foundation-icons';
   public $css = [
-      '/foundation-icons.css'
+      'foundation-icons.css'
   ];
 
 }
