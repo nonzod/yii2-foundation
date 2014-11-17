@@ -6,7 +6,9 @@
  *  @version 0.0.1
  */
 
-namespace nonzod\foundation;
+namespace nonzod\foundation\grid;
+
+use nonzod\foundation\FoundationIconAsset;
 
 /**
  * Description of GridView
