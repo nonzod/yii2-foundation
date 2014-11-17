@@ -19,4 +19,10 @@ class GridView extends \yii\grid\GridView {
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $tableOptions = ['class' => 'table', 'role' => 'grid']; 
+    
+    /**
+     * @var array 
+     * @see [[\yii\widgets\BaseListView::pager]]
+     */
+    public $pager = ['class' => 'nonzod\foundation\LinkPager'];
 }
