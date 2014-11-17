@@ -19,7 +19,7 @@
     "require": {
         "yiisoft/yii2": "*",
         "bower-asset/foundation": "5.4.*",
-        "bower-asset/foundation-icon-fonts": "*"
+        "bower-asset/foundation-icon-fonts": "dev-master"
     },
     "autoload": {
         "psr-4": {

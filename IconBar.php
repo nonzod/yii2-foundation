@@ -44,13 +44,14 @@ class IconBar extends Widget{
       $this->options['role'] = 'navigation';
     }
     
-    echo Html::beginTag('div', $this->options);
+    FoundationIconAsset::register($this->getView());
   }
   
   /**
    * 
    */
   public function run() {
+    echo Html::beginTag('div', $this->options);
     echo implode("\n", $this->renderItems());
     echo Html::endTag('div');
   }
