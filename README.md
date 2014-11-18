@@ -1,3 +1,6 @@
+[![Latest Stable Version](https://poser.pugx.org/nonzod/yii2-foundation/v/stable.svg)](https://packagist.org/packages/nonzod/yii2-foundation) [![Total Downloads](https://poser.pugx.org/nonzod/yii2-foundation/downloads.svg)](https://packagist.org/packages/nonzod/yii2-foundation) [![Latest Unstable Version](https://poser.pugx.org/nonzod/yii2-foundation/v/unstable.svg)](https://packagist.org/packages/nonzod/yii2-foundation) [![License](https://poser.pugx.org/nonzod/yii2-foundation/license.svg)](https://packagist.org/packages/nonzod/yii2-foundation)
+
+
 Foundation Extension for Yii 2
 ==============================
 
