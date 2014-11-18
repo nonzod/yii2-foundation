@@ -42,3 +42,12 @@ or add
 ```
 
 to the require section of your `composer.json` file.
+
+Further Information
+-------------------
+Please, check the [Zurb Foundation site](http://foundation.zurb.com) documentation for further information about its configuration options.
+
+
+[![Digisin!](http://www.gravatar.com/avatar/22a20658376852cef64a7a2abcfa761a.png)](http://www.digisin.it)  
+<i>Web & Mobile development</i>  
+[www.digisin.it](http://www.digisin.it)  
