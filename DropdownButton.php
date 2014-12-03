@@ -48,23 +48,14 @@ class DropdownButton extends Widget {
    * @var boolean whether the label should be HTML-encoded.
    */
   public $encodeLabel = true;
-
-  /**
-   * DOM id for the dropdown, used to link button to dropdown.
-   * @todo better way to generate ID or get the id from Widget...
-   * @var type 
-   */
-  protected $_dropdownId;
   
   /**
    * Renders the widget.
    */
   public function run() {
-    $dropdownOptions = ArrayHelper::getValue($this->dropdown, 'options', []);
-    $this->_dropdownId = ArrayHelper::getValue($dropdownOptions, 'id', 'dd-' . rand(1, 10));
-    
-    echo "\n" . $this->renderButton();
-    echo "\n" . $this->renderDropdown();
+    $dropdown = Dropdown::begin($this->getDropdownConfig());
+    echo "\n" . $this->renderButton($dropdown);
+    Dropdown::end();
     
     $this->registerPlugin('button');
   }
@@ -73,7 +64,8 @@ class DropdownButton extends Widget {
    * Generates the button dropdown.
    * @return string the rendering result.
    */
-  protected function renderButton() {
+  protected function renderButton($dropdown) {
+    $dropdownId = $dropdown->getId();
     
     Html::addCssClass($this->options, 'button');
     $label = $this->label;
@@ -84,7 +76,7 @@ class DropdownButton extends Widget {
       $this->tagName = 'a';
       Html::addCssClass($this->options, 'split');
       $options = $this->options;
-      $label .= Html::tag('span', '', ['data-dropdown' => $this->_dropdownId]);
+      $label .= Html::tag('span', '', ['data-dropdown' => $dropdownId]);
     } else {
       Html::addCssClass($this->options, 'dropdown');
       $options = $this->options;
@@ -92,7 +84,7 @@ class DropdownButton extends Widget {
         $options['href'] = '#';
       }
       
-      $options['data-dropdown'] = $this->_dropdownId;
+      $options['data-dropdown'] = $dropdownId;
     }
 
     return Button::widget([
@@ -104,16 +96,16 @@ class DropdownButton extends Widget {
   }
 
   /**
-   * Generates the dropdown menu.
-   * @return string the rendering result.
+   * Get config for [[Dropdown]] widget
+   * @return array config options
    */
-  protected function renderDropdown() {
+  protected function getDropdownConfig() {
     $config = $this->dropdown;
-    $config['id'] = $this->_dropdownId;
+    $config['id'] = ArrayHelper::getValue($config, 'id', null);
     $config['clientOptions'] = false;
     $config['view'] = $this->getView();
     
-    return Dropdown::widget($config);
+    return $config;
   }
 
 }
