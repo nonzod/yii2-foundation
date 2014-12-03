@@ -19,6 +19,12 @@ use yii\helpers\Html;
 class Button extends Widget {
 
   /**
+   *
+   * @var array 
+   */
+  public $options = ['class' => 'button'];
+  
+  /**
    * @var string the tag to use to render the button
    */
   public $tagName = 'a';
@@ -46,7 +52,6 @@ class Button extends Widget {
   public function init() {
     parent::init();
     $this->clientOptions = false;
-    Html::addCssClass($this->options, 'button');
     $this->options['role'] = 'button';
   }
 

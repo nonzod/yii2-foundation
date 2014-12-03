@@ -13,7 +13,7 @@ use yii\helpers\ArrayHelper;
 use yii\base\InvalidConfigException;
 
 /**
- * Description of SplitButton
+ * Description of Dropdown
  *
  * @author Nicola Tomassoni <nicola@digisin.it>
  */

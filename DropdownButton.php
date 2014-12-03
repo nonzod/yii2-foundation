@@ -27,7 +27,7 @@ class DropdownButton extends Widget {
    * @var array the HTML attributes of the button.
    * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
    */
-  public $options = [];
+  public $options = ['class' => 'button'];
 
   /**
    * The button url, used only for split button
@@ -72,13 +72,13 @@ class DropdownButton extends Widget {
   protected function renderButton($dropdown) {
     $dropdownId = $dropdown->getId();
     
-    Html::addCssClass($this->options, 'button');
     $label = $this->label;
     if ($this->encodeLabel) {
       $label = Html::encode($label);
     }
     if ($this->split) {
       $this->tagName = 'a';
+      Html::addCssClass($this->options, 'button');
       Html::addCssClass($this->options, 'split');
       $options = $this->options;
       $label .= Html::tag('span', '', ['data-dropdown' => $dropdownId]);
