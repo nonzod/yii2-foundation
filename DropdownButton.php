@@ -30,6 +30,11 @@ class DropdownButton extends Widget {
   public $options = [];
 
   /**
+   * The button url, used only for split button
+   * @var string Button url 
+   */
+  public $url = '#';
+  /**
    * @var array the configuration array for [[Dropdown]].
    */
   public $dropdown = [];
@@ -80,9 +85,6 @@ class DropdownButton extends Widget {
     } else {
       Html::addCssClass($this->options, 'dropdown');
       $options = $this->options;
-      if (!isset($options['href'])) {
-        $options['href'] = '#';
-      }
       
       $options['data-dropdown'] = $dropdownId;
     }
@@ -91,6 +93,7 @@ class DropdownButton extends Widget {
             'tagName' => $this->tagName,
             'label' => $label,
             'options' => $options,
+            'url' => $this->url,
             'encodeLabel' => false,
         ]) . "<br />\n";
   }

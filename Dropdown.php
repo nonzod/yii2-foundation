@@ -73,11 +73,14 @@ class Dropdown extends Widget {
   protected function renderDropdown($items) {
     if (is_string($items)) {
       $items = $this->renderAsContent($items);
+      Html::addCssClass($this->_containerOptions, 'content');
+      $tag = 'div';
     } else {
       $items = $this->renderAsItems($items);
+      $tag = 'ul';
     }
     
-    return Html::tag('ul', $items, $this->_containerOptions);
+    return Html::tag($tag, $items, $this->_containerOptions);
   }
 
   /**
@@ -118,6 +121,6 @@ class Dropdown extends Widget {
    * @return string
    */
   protected function renderAsContent($item) {
-    return Html::encode($item);
+    return $item;
   }
 }
