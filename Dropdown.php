@@ -65,6 +65,11 @@ class Dropdown extends Widget {
     $this->registerPlugin('dropdown');
   }
 
+  /**
+   * 
+   * @param array $items
+   * @return string
+   */
   protected function renderDropdown($items) {
     if (is_string($items)) {
       $items = $this->renderAsContent($items);
@@ -107,6 +112,11 @@ class Dropdown extends Widget {
     return implode("\n", $lines);
   }
 
+  /**
+   * 
+   * @param array $item
+   * @return string
+   */
   protected function renderAsContent($item) {
     return Html::encode($item);
   }

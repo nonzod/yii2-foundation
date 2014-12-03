@@ -52,12 +52,6 @@ class ActiveField extends \yii\widgets\ActiveField {
   public $inputOptions = [];
 
   /**
-   *
-   * @var type 
-   */
-  public $inlineCssClasses = [];
-
-  /**
    * @inheritdoc
    */
   public function __construct($config = []) {
@@ -79,7 +73,6 @@ class ActiveField extends \yii\widgets\ActiveField {
    * @return static the field object itself
    */
   public function hint($content, $options = []) {
-
     $options = array_merge($this->hintOptions, $options, [
         'id' => 'hint-' . Html::getInputId($this->model, $this->attribute)
     ]);
@@ -157,8 +150,8 @@ class ActiveField extends \yii\widgets\ActiveField {
    * @inheritdoc
    */
   public function radio($options = [], $enclosedByLabel = false) {
-      $this->template = $this->form->layout === 'inline' ?
-          $this->inlineTemplate : $this->radioTemplate;
+    $this->template = $this->form->layout === 'inline' ?
+        $this->inlineTemplate : $this->radioTemplate;
 
     return parent::radio($options, $enclosedByLabel);
   }
