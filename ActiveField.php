@@ -10,6 +10,7 @@ namespace nonzod\foundation;
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
+use yii\helpers\BaseHtml;
 
 /**
  * Description of ActiveField
@@ -186,7 +187,7 @@ class ActiveField extends \yii\widgets\ActiveField {
         $this->renderLabelParts();
       }
 
-      if ($this->enableError === false) {
+      if ($this->enableError === false || !$this->model->getFirstError(BaseHtml::getAttributeName($this->attribute))) {
         $this->parts['{error}'] = '';
       }
 
@@ -211,7 +212,7 @@ class ActiveField extends \yii\widgets\ActiveField {
         ],
         'errorOptions' => [
             'tag' => 'small',
-            'class' => 'error-box'
+            'class' => 'error'
         ]
     ];
 
