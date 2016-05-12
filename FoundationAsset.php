@@ -28,6 +28,7 @@ class FoundationAsset extends AssetBundle {
       'js/foundation.js'
   ];
   public $depends = [
+      'yii\web\JqueryAsset',
       'nonzod\foundation\ModernizrAsset',
       'nonzod\foundation\FastclickAsset'
   ];

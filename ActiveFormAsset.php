@@ -19,8 +19,8 @@ use yii\web\AssetBundle;
  */
 class ActiveFormAsset extends AssetBundle {
 
-  public $sourcePath = '@vendor/nonzod/yii2-foundation';
+  public $sourcePath = '@vendor/nonzod/yii2-foundation/js';
   public $js = [
-      'js/foundation.activeForm.js'
+      'foundation.activeForm.js'
   ];
 }
