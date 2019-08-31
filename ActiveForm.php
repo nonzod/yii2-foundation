@@ -39,8 +39,8 @@ class ActiveForm extends \yii\widgets\ActiveForm {
    * @inheritdoc
    */
   public function run() {
-    parent::run();
     $view = $this->getView();
     ActiveFormAsset::register($view);
+    return parent::run();
   }
 }
