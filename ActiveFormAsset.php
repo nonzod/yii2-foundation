@@ -23,4 +23,5 @@ class ActiveFormAsset extends AssetBundle {
   public $js = [
       'foundation.activeForm.js'
   ];
+  public $depends = ['yii\web\JqueryAsset'];
 }
